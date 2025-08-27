@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Swiss Solutions — One Solution</title>
+  <meta name="description" content="Swiss Solutions connects transporters with available trailers across South Africa. Word‑only hero, clean UI, secure and efficient logistics solutions." />
+  <style>
+    :root {
+      --bg: #0b1f33;          /* Deep navy */
+      --fg: #ffffff;          /* Pure white */
+      --muted: #b7c4d6;       /* Muted text */
+      --brand: #39a7ff;       /* Swiss light blue */
+      --brand-strong: #2583d6;/* Hover accent */
+      --surface: #0f2a45;     /* Slightly lighter than bg */
+      --card: rgba(255,255,255,.04);
+      --border: rgba(255,255,255,.08);
+      --success: #36d399;
+      --warning: #f6c84c;
+      --danger: #ff7a7a;
+    }
+
+    html, body { height: 100%; margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; color: var(--fg); background: var(--bg); scroll-behavior: smooth; }
+
+    .container { width: min(1200px, 92vw); margin: 0 auto; }
+
+    /* Top nav */
+    header { position: sticky; top: 0; backdrop-filter: blur(10px); background: linear-gradient(180deg, rgba(11,31,51,.85), rgba(11,31,51,0)); border-bottom: 1px solid rgba(255,255,255,.06); z-index: 50; }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+    .brand { display: inline-flex; align-items: center; gap: .6rem; font-weight: 700; letter-spacing: .4px; }
+    .dot { display: inline-block; width: 10px; height: 10px; border-radius: 999px; background: var(--brand); box-shadow: 0 0 0 6px rgba(57,167,255,.18); }
+    .nav a { color: var(--muted); text-decoration: none; font-weight: 600; margin-left: 1.25rem; }
+    .nav a:hover { color: var(--fg); }
+
+    /* Word-only hero */
+    .hero { display: grid; place-items: center; min-height: 88dvh; padding: 6rem 0 4rem; background:
+      radial-gradient(1200px 600px at 10% 10%, rgba(57,167,255,.12), transparent 60%),
+      radial-gradient(900px 500px at 90% 20%, rgba(57,167,255,.08), transparent 60%),
+      linear-gradient(180deg, var(--bg), var(--surface)); border-bottom: 1px solid rgba(255,255,255,.06); }
+    .hero-inner { text-align: center; max-width: 980px; }
+    .eyebrow { display: inline-block; font-size: .85rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); background: rgba(255,255,255,.06); padding: .45rem .75rem; border-radius: 999px; border: 1px solid rgba(255,255,255,.08); }
+    h1 { margin: 14px 0 10px; font-size: clamp(2.4rem, 6vw, 4.2rem); line-height: 1.05; letter-spacing: -0.02em; }
+    .headline-accent { color: var(--brand); }
+    .sub { margin: 0 auto 28px; max-width: 56ch; color: var(--muted); font-size: clamp(1rem, 2.2vw, 1.175rem); line-height: 1.6; }
+
+    .cta-row { display: grid; grid-template-columns: 1fr; gap: 14px; width: min(720px, 92vw); margin: 0 auto; }
+    @media (min-width: 720px) { .cta-row { grid-template-columns: 1fr 1fr; } }
+
+    .cta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.1rem; border-radius: 16px; border: 1px solid var(--border); background: var(--card); transition: transform .25s ease, background .25s ease; }
+    .cta:hover { transform: translateY(-2px); background: rgba(255,255,255,.06); }
+    .cta h3 { margin: .25rem 0 .1rem; font-size: 1.05rem; }
+    .cta p { margin: 0; color: var(--muted); font-size: .95rem; }
+
+    .btn { appearance: none; border: none; border-radius: 12px; padding: .9rem 1.1rem; font-weight: 700; cursor: pointer; white-space: nowrap; }
+    .btn-primary { background: var(--brand); color: #001427; box-shadow: 0 8px 24px rgba(57,167,255,.25); }
+    .btn-primary:hover { background: var(--brand-strong); }
+    .btn-ghost { background: transparent; color: var(--fg); border: 1px solid rgba(255,255,255,.16); }
+    .btn-ghost:hover { border-color: rgba(255,255,255,.36); }
+
+    /* Sections */
+    section { padding: 80px 0; }
+    .section-head { text-align: center; margin-bottom: 28px; }
+    .section-head h2 { font-size: clamp(1.6rem, 3.8vw, 2.4rem); margin: 0 0 8px; }
+    .section-head p { margin: 0 auto; max-width: 62ch; color: var(--muted); }
+
+    /* Card grids */
+    .grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media (min-width: 820px) { .grid-2 { grid-template-columns: 1fr 1fr; } .grid-3 { grid-template-columns: repeat(3,1fr); } .grid-4 { grid-template-columns: repeat(4,1fr); } }
+
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 18px; transition: transform .25s ease, background .25s ease; }
+    .card:hover { transform: translateY(-3px); background: rgba(255,255,255,.06); }
+    .card h3 { margin: 12px 0 6px; font-size: 1.1rem; }
+    .card p { margin: 0; color: var(--muted); }
+    .icon { width: 28px; height: 28px; display: inline-block; }
+
+    /* Safety (full section) */
+    .safety-hero { background: radial-gradient(900px 500px at 90% 20%, rgba(57,167,255,.10), transparent 60%), linear-gradient(180deg, var(--surface), #0a1a2a); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .pill { display:inline-flex; align-items:center; gap:.5rem; border:1px solid var(--border); background: rgba(255,255,255,.05); padding:.5rem .75rem; border-radius:999px; color:var(--muted); font-size:.9rem; }
+
+    /* Partners */
+    .partners { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+    .partner-pill { display:inline-flex; align-items:center; gap:.6rem; padding:.6rem .9rem; border:1px solid var(--border); background: rgba(255,255,255,.03); border-radius:999px; color:var(--muted); }
+    .partner-dot { width:10px; height:10px; border-radius:999px; background:var(--brand); box-shadow: 0 0 0 4px rgba(57,167,255,.18); }
+
+    /* FAQ */
+    details { background: var(--card); border:1px solid var(--border); border-radius:14px; padding:14px 16px; }
+    summary { cursor:pointer; font-weight:700; }
+    details + details { margin-top:10px; }
+
+    /* Contact */
+    .contact-block { display:grid; gap:10px; justify-content:center; text-align:center; }
+    .contact a { color: var(--fg); text-decoration:none; }
+    .contact a:hover { text-decoration: underline; }
+
+    /* Footer */
+    footer { color: var(--muted); font-size: .9rem; padding: 24px 0 40px; }
+    .foot { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; }
+    .foot a { color: var(--muted); text-decoration:none; }
+    .foot a:hover { color: var(--fg); }
+
+    /* Enter animations */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity:1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand"><span class="dot" aria-hidden="true"></span>Swiss Solutions</div>
+      <nav aria-label="Primary">
+        <a href="#solutions">Our Solutions</a>
+        <a href="#sectors">Sectors</a>
+        <a href="#who">Who We Are</a>
+        <a href="safety.html">Safety</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" aria-label="Word-only headline hero">
+      <div class="hero-inner container">
+        <span class="eyebrow">Logistics • South Africa</span>
+        <h1>Swiss Solutions. <span class="headline-accent">One Solution.</span></h1>
+        <p class="sub">We match businesses that need capacity with trailer owners who want predictable earnings.</p>
+
+        <div class="cta-row" role="group" aria-label="Primary actions">
+          <div class="cta">
+            <div>
+              <h3>I Need a Trailer</h3>
+              <p>Get matched fast with vetted trailer owners nationwide.</p>
+            </div>
+            <button class="btn btn-primary" onclick="location.href='https://www.notion.so/241c66316bc981779457fed8182f6852?pvs=106'">Find a Trailer</button>
+          </div>
+
+          <div class="cta">
+            <div>
+              <h3>I Have a Trailer</h3>
+              <p>List your trailer and start earning with managed deals.</p>
+            </div>
+            <button class="btn btn-ghost" onclick="location.href='https://gold-sort-3ae.notion.site/241c66316bc9809a891bc736a7c8bb9e?pvs=105'">List Your Trailer</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR SOLUTIONS -->
+    <section id="solutions" class="reveal">
+      <div class="container">
+        <div class="section-head">
+          <h2>Our Solutions</h2>
+          <p>Seamless logistics connections and managed contracts that turn idle assets into reliable movement.</p>
+        </div>
+        <div class="grid grid-2">
+          <article class="card">
+            <span class="icon" aria-hidden="true">🔁</span>
+            <h3>Fully‑Managed Deal Flow</h3>
+            <p>We handle the heavy lifting — KYC, contracts, deposits, and handovers — so owners and transporters focus on operations. Clear SLAs, transparent terms, and responsive support reduce friction and delays.</p>
+          </article>
+
+          <article class="card">
+            <span class="icon" aria-hidden="true">🧭</span>
+            <h3>Trailer Sourcing On‑Demand</h3>
+            <p>Need capacity today? We match your load with the right trailer type and location. Our live supply view shortens lead times and keeps projects moving on schedule.</p>
+          </article>
+
+          <article class="card">
+            <span class="icon" aria-hidden="true">💸</span>
+            <h3>Trailer Monetisation for Owners</h3>
+            <p>Turn idle trailers into dependable income. We source vetted demand, manage paperwork, and streamline payouts — whether you own a single unit or an entire fleet.</p>
+          </article>
+
+          <article class="card">
+            <span class="icon" aria-hidden="true">📊</span>
+            <h3>Transparent Pricing & Payouts</h3>
+            <p>No surprises. Owners see earnings up‑front, transporters see total costs, and both parties receive clear invoices and timelines tied to milestones.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTORS -->
+    <section id="sectors" class="reveal">
+      <div class="container">
+        <div class="section-head">
+          <h2>Industry Sectors Coverage</h2>
+          <p>From mining to retail, we support a wide range of industries with tailored trailer solutions designed for speed, scale, and reliability.</p>
+        </div>
+        <div class="grid grid-2">
+          <article class="card">
+            <span class="icon" aria-hidden="true">⛏️</span>
+            <h3>Mining & Bulk Commodities</h3>
+            <p>Side tippers and heavy‑duty units for coal, chrome, and aggregate routes. We prioritise uptime, safe loading, and rapid cycle times to meet demanding production targets.</p>
+          </article>
+          <article class="card">
+            <span class="icon" aria-hidden="true">🏗️</span>
+            <h3>Construction & Infrastructure</h3>
+            <p>Flatdecks, lowbeds, and rear tippers to move materials and machinery. Reliable capacity and precise scheduling keep projects on track from site prep to completion.</p>
+          </article>
+          <article class="card">
+            <span class="icon" aria-hidden="true">🌾</span>
+            <h3>Agriculture & Agri‑Processing</h3>
+            <p>Grain, inputs, and processed goods moved in season and out. Flexible sourcing covers harvest peaks, while off‑season monetisation keeps assets productive.</p>
+          </article>
+          <article class="card">
+            <span class="icon" aria-hidden="true">🛒</span>
+            <h3>Retail & FMCG Distribution</h3>
+            <p>Tautliners and enclosed units for DC and store deliveries. Consistent service levels and route planning support on‑time, in‑full performance.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO WE ARE -->
+    <section id="who" class="reveal">
+      <div class="container">
+        <div class="section-head">
+          <h2>Who We Are</h2>
+          <p>We exist to modernise the trailer and transport economy by giving companies rapid access to the trailers, equipment, and freight support they need — without owning the assets themselves.</p>
+        </div>
+        <div class="card">
+          <p style="margin-top:0">From dry freight to yellow machines, we work with trusted trailer owners, mining partners, and construction firms to mobilise South Africa’s real economy. Our model is built for scale, leveraging tech, trust, and speed to move goods faster, safer, and smarter.</p>
+          <p style="margin-bottom:0">Swiss Solutions is where logistics, strategy, and simplicity meet — for brokers, fleet owners, and national‑scale clients alike.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECURE & EFFICIENT -->
+    <section id="secure" class="reveal">
+      <div class="container">
+        <div class="section-head">
+          <h2>Secure and Efficient Logistics Solutions</h2>
+          <p>Precision, protection, and performance — built into every match and move.</p>
+        </div>
+        <div class="grid grid-3">
+          <article class="card">
+            <span class="icon" aria-hidden="true">⚡</span>
+            <h3>Rapid Delivery Network</h3>
+            <p>Nationwide coverage with GPS‑enabled partners, live updates, and fast turnarounds. We shorten lead times so operations keep momentum.</p>
+          </article>
+          <article class="card">
+            <span class="icon" aria-hidden="true">🔗</span>
+            <h3>End‑to‑End Logistics</h3>
+            <p>From route planning and documentation to handover and returns, we orchestrate each step to reduce errors and eliminate downtime.</p>
+          </article>
+          <article class="card">
+            <span class="icon" aria-hidden="true">🛡️</span>
+            <h3>Safety & Compliance</h3>
+            <p>Vetted partners, GIT and third‑party cover, and strict load and maintenance standards. We design for safety first — every time.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAFETY (PAGE/SECTION) -->
+    <section id="safety" class="safety-hero reveal" aria-label="Safety & Security">
+      <div class="container">
+        <div class="section-head">
+          <h2>Safety & Security</h2>
+          <p>We don’t compromise on protection — for your cargo, your people, or your reputation.</p>
+        </div>
+        <div class="grid grid-2">
+          <article class="card">
+            <span class="pill">Policy • Compliance</span>
+            <h3>Vetted Network</h3>
+            <p>Carriers undergo licensing and documentation checks, including roadworthy certificates and insurance validation. Repeat performance data informs allocation and priority.</p>
+          </article>
+          <article class="card">
+            <span class="pill">Tracking • Control</span>
+            <h3>Live Visibility</h3>
+            <p>GPS tracking and milestone confirmations offer clear ETAs. Exceptions trigger alerts so we can act before small issues become costly delays.</p>
+          </article>
+          <article class="card">
+            <span class="pill">Risk • Response</span>
+            <h3>Incident Protocols</h3>
+            <p>Defined downtime clauses, swap‑out procedures, and repair paths minimise disruption. For high‑value loads, we coordinate escorts and tamper‑evident seals.</p>
+          </article>
+          <article class="card">
+            <span class="pill">Standards • Audits</span>
+            <h3>Continuous Assurance</h3>
+            <p>Periodic audits, route risk reviews, and maintenance checks uphold safety and service levels. We measure what matters, and iterate.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNERS -->
+    <section id="partners" class="reveal">
+      <div class="container">
+        <div class="section-head">
+          <h2>Our Partners</h2>
+          <p>We collaborate with trusted operators, insurers, and service providers to deliver resilient logistics.</p>
+        </div>
+        <div class="partners">
+          <span class="partner-pill"><span class="partner-dot"></span> Fleet Operators</span>
+          <span class="partner-pill"><span class="partner-dot"></span> Trailer Owners</span>
+          <span class="partner-pill"><span class="partner-dot"></span> Insurers</span>
+          <span class="partner-pill"><span class="partner-dot"></span> Compliance & Permits</span>
+          <span class="partner-pill"><span class="partner-dot"></span> Workshops & Tyres</span>
+          <span class="partner-pill"><span class="partner-dot"></span> Tech & Tracking</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="reveal">
+      <div class="container">
+        <div class="section-head">
+          <h2>Frequently Asked Questions</h2>
+          <p>Quick answers to common queries. Need more? <a class="contact" href="#contact">Contact us</a>.</p>
+        </div>
+        <details>
+          <summary>What trailer types can you source?</summary>
+          <p>Side tippers, flatdecks, tautliners, reefers, tankers, lowbeds, and more — matched by location and lead time.</p>
+        </details>
+        <details>
+          <summary>How fast can you place a trailer?</summary>
+          <p>Often within 24–72 hours depending on type, route, and documentation requirements.</p>
+        </details>
+        <details>
+          <summary>How do pricing and deposits work?</summary>
+          <p>Rates depend on trailer type and term. Deposits are typically 2–3× monthly rates, with transparent fees and milestone‑based payouts.</p>
+        </details>
+        <details>
+          <summary>Do you offer cross‑border solutions?</summary>
+          <p>Yes — subject to permits and insurance coverage in neighbouring countries.</p>
+        </details>
+        <details>
+          <summary>Can owners list multiple trailers?</summary>
+          <p>Absolutely. We support single‑unit owners and large fleets, with scalable admin support.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="reveal">
+      <div class="container">
+        <div class="section-head">
+          <h2>Contact</h2>
+          <p>Talk to a real person. We’ll get you moving.</p>
+        </div>
+        <div class="contact-block">
+          <div>📞 <a href="tel:+27760884098">076 088 4098</a> &nbsp;•&nbsp; 📞 <a href="tel:+27814119781">081 411 9781</a></div>
+          <div>✉️ <a href="mailto:contact@swisssolutions.co.za">contact@swisssolutions.co.za</a></div>
+          <div style="margin-top:10px">
+            <a class="btn btn-primary" href="https://www.notion.so/241c66316bc981779457fed8182f6852?pvs=106">I Need a Trailer</a>
+            &nbsp;
+            <a class="btn btn-ghost" href="https://gold-sort-3ae.notion.site/241c66316bc9809a891bc736a7c8bb9e?pvs=105">I Have a Trailer</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <span>© <span id="y"></span> Swiss Solutions</span>
+      <a href="#privacy">Privacy</a>
+      <a href="#terms">Terms</a>
+    </div>
+  </footer>
+  <script>
+    // Keep year current
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('in'); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Safety & Security — Swiss Solutions</title>
+  <meta name="description" content="Swiss Solutions safety & security: vetted carriers, GPS visibility, insurance, downtime protocols, and compliance standards for South African logistics." />
+  <style>
+    :root {
+      --bg: #0b1f33;
+      --fg: #ffffff;
+      --muted: #b7c4d6;
+      --brand: #39a7ff;
+      --brand-strong: #2583d6;
+      --surface: #0f2a45;
+      --card: rgba(255,255,255,.04);
+      --border: rgba(255,255,255,.08);
+      --success: #36d399;
+      --warning: #f6c84c;
+      --danger: #ff7a7a;
+    }
+    html, body { height:100%; margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial; color:var(--fg); background:var(--bg); scroll-behavior:smooth; }
+    .container { width:min(1200px,92vw); margin:0 auto; }
+
+    header { position: sticky; top:0; backdrop-filter: blur(10px); background: linear-gradient(180deg, rgba(11,31,51,.85), rgba(11,31,51,0)); border-bottom:1px solid rgba(255,255,255,.06); z-index:50; }
+    .nav { display:flex; align-items:center; justify-content:space-between; padding:16px 0; }
+    .brand { display:inline-flex; align-items:center; gap:.6rem; font-weight:700; letter-spacing:.4px; }
+    .dot { width:10px; height:10px; border-radius:999px; background:var(--brand); box-shadow:0 0 0 6px rgba(57,167,255,.18); display:inline-block; }
+    .nav a { color:var(--muted); text-decoration:none; font-weight:600; margin-left:1.25rem; }
+    .nav a:hover { color:var(--fg); }
+
+    .hero { padding: 84px 0 36px; background:
+      radial-gradient(1000px 500px at 15% 10%, rgba(57,167,255,.12), transparent 60%),
+      radial-gradient(700px 400px at 85% 10%, rgba(57,167,255,.08), transparent 60%),
+      linear-gradient(180deg, var(--bg), var(--surface)); border-bottom:1px solid var(--border); }
+    .breadcrumbs { color:var(--muted); font-size:.95rem; }
+    .breadcrumbs a { color:var(--muted); text-decoration:none; }
+    .breadcrumbs a:hover { color:var(--fg); text-decoration:underline; }
+    h1 { margin: 12px 0 10px; font-size: clamp(2.1rem, 5vw, 3.2rem); letter-spacing:-.02em; }
+    .sub { margin: 0 0 12px; max-width: 70ch; color: var(--muted); }
+
+    section { padding: 64px 0; }
+    .section-head { margin-bottom: 22px; }
+    .section-head h2 { font-size: clamp(1.6rem, 3.6vw, 2.2rem); margin:0 0 6px; }
+    .section-head p { margin:0; color:var(--muted); max-width:62ch; }
+
+    .grid { display:grid; gap:16px; }
+    @media (min-width: 860px) { .grid-2 { grid-template-columns: 1fr 1fr; } .grid-3 { grid-template-columns: repeat(3,1fr); } }
+
+    .card { background:var(--card); border:1px solid var(--border); border-radius:18px; padding:18px; transition: transform .25s ease, background .25s ease; }
+    .card:hover { transform:translateY(-3px); background: rgba(255,255,255,.06); }
+    .pill { display:inline-flex; align-items:center; gap:.5rem; border:1px solid var(--border); background: rgba(255,255,255,.05); padding:.5rem .75rem; border-radius:999px; color:var(--muted); font-size:.85rem; }
+    .icon { width:28px; height:28px; display:inline-block; margin-right:6px; }
+
+    .list { margin: 0; padding-left: 1.1rem; color: var(--muted); }
+
+    footer { color: var(--muted); font-size: .9rem; padding: 24px 0 40px; border-top:1px solid var(--border); }
+    .foot { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; }
+    .foot a { color: var(--muted); text-decoration:none; }
+    .foot a:hover { color: var(--fg); }
+
+    .reveal { opacity:0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity:1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand"><span class="dot" aria-hidden="true"></span>Swiss Solutions</div>
+      <nav aria-label="Primary">
+        <a href="index.html#solutions">Our Solutions</a>
+        <a href="index.html#sectors">Sectors</a>
+        <a href="index.html#who">Who We Are</a>
+        <a href="safety.html">Safety</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="breadcrumbs"><a href="index.html">Home</a> › Safety & Security</div>
+        <h1>Safety & Security</h1>
+        <p class="sub">We design safety into the deal — from partner vetting and compliant equipment to real‑time visibility, incident response, and transparent documentation.</p>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="container">
+        <div class="section-head">
+          <h2>How We Keep Loads, People, and Assets Safe</h2>
+          <p>Four pillars underpin our approach: Vetting, Visibility, Insurance, and Incident Response. Each pillar is measurable and auditable.</p>
+        </div>
+        <div class="grid grid-2">
+          <article class="card">
+            <span class="pill">Vetting</span>
+            <h3>Network Qualification</h3>
+            <ul class="list">
+              <li>Licences: Carrier, driver PDPs, and vehicle roadworthy certificates.</li>
+              <li>Equipment: Brake, tyre, and lighting checks; photo verification on handover.</li>
+              <li>History: References and repeat performance scoring inform allocation priority.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <span class="pill">Visibility</span>
+            <h3>GPS & Milestones</h3>
+            <ul class="list">
+              <li>Live location sharing (where enabled) with geo‑fenced checkpoints and ETAs.</li>
+              <li>Pickup / en‑route / delivery confirmations with timestamped evidence.</li>
+              <li>Exception alerts for route deviations and prolonged stops.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <span class="pill">Insurance</span>
+            <h3>Cover & Controls</h3>
+            <ul class="list">
+              <li>Goods in Transit (GIT) and third‑party liability required for carriers.</li>
+              <li>Validated policy docs prior to dispatch; excess terms disclosed up‑front.</li>
+              <li>High‑value loads: optional escorts, seals, and parking protocols.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <span class="pill">Response</span>
+            <h3>Downtime & Incidents</h3>
+            <ul class="list">
+              <li>Downtime clause: payment pause or like‑for‑like replacement within 24–48h.</li>
+              <li>Repair path with approved workshops; tyre & brake standards enforced.</li>
+              <li>Post‑incident review and root‑cause remediation for repeat prevention.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="container">
+        <div class="section-head">
+          <h2>Compliance Matrix</h2>
+          <p>Our baseline compliance requirements across common trailer categories.</p>
+        </div>
+        <div class="grid grid-3">
+          <article class="card">
+            <h3>Side Tippers</h3>
+            <ul class="list">
+              <li>Weight & axle load limits confirmed pre‑dispatch.</li>
+              <li>Hydraulics inspected; tip zones demarcated at site.</li>
+              <li>Mine induction where required; PPE compliance.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Flatdecks & Lowbeds</h3>
+            <ul class="list">
+              <li>Load securement (chains/straps) checked against payload.</li>
+              <li>Oversize permits and pilot vehicles when applicable.</li>
+              <li>Edge protection and fall‑prevention for loading/unloading.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Tautliners & Reefers</h3>
+            <ul class="list">
+              <li>Seal integrity, temperature logs (reefers), and hygiene standards.</li>
+              <li>Dock safety procedures; pallet and MHE compliance.</li>
+              <li>GMP/food‑grade protocols for FMCG where required.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="container">
+        <div class="section-head">
+          <h2>Documentation & Chain of Custody</h2>
+          <p>Clear paperwork protects every party. We standardise and digitise the trail.</p>
+        </div>
+        <div class="grid grid-2">
+          <article class="card">
+            <h3>Before Dispatch</h3>
+            <ul class="list">
+              <li>Signed lease/haulage terms, IDs/CK docs, and insurance proof.</li>
+              <li>Pre‑trip inspection checklist with photos and timestamps.</li>
+              <li>Route plan, permits, and site‑specific rules acknowledged.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>During & After</h3>
+            <ul class="list">
+              <li>ePOD / delivery note capture; seal numbers logged (where used).</li>
+              <li>Incident/exception forms; downtime approvals if triggered.</li>
+              <li>Return inspection checklist and condition sign‑off.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="container">
+        <div class="section-head">
+          <h2>Data Security & Privacy</h2>
+          <p>Operational trust extends to information handling.</p>
+        </div>
+        <div class="grid grid-2">
+          <article class="card">
+            <h3>Principles</h3>
+            <ul class="list">
+              <li>Least‑privilege access for documents and identities.</li>
+              <li>Encrypted at rest/in transit where systems allow.</li>
+              <li>Retention policies aligned to legal and operational needs.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Transparency</h3>
+            <ul class="list">
+              <li>Clear consent for tracking/visibility features.</li>
+              <li>Audit logs for critical workflow steps.</li>
+              <li>Vendor due diligence for tech partners.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="container">
+        <div class="section-head">
+          <h2>Questions?</h2>
+          <p>Speak to us about safety requirements for your routes and cargo.</p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <p>📞 <a style="color:#fff; text-decoration:none;" href="tel:+27760884098">076 088 4098</a> • 📞 <a style="color:#fff; text-decoration:none;" href="tel:+27814119781">081 411 9781</a> • ✉️ <a style="color:#fff; text-decoration:none;" href="mailto:contact@swisssolutions.co.za">contact@swisssolutions.co.za</a></p>
+          <p style="margin-top:10px"><a class="pill" href="index.html#contact">Back to Contact</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <span>© <span id="y"></span> Swiss Solutions</span>
+      <a href="index.html#privacy">Privacy</a>
+      <a href="index.html#terms">Terms</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    const observer = new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } }); }, { threshold:0.12 });
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+  </script>
+</body>
+</html>
